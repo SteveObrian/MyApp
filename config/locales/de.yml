@@ -1,0 +1,41 @@
+de:
+  time:
+    formats:
+      default: "%d.%m.%Y -  %H:%M Uhr"
+  accounts:
+    show:
+      balance: "Guthaben:"
+      headline: Alle Umsätze im Überblick
+      modal:
+        headline: Neue Transaktion erstellen
+        label:
+          amount: Betrag
+          transaction_type: Zahlungstyp
+          purpose: Verwendungszweck
+    transactions:
+      transaction_types:
+        withdraw: Ausgegeben
+        deposit: Eingezahlt
+  buttons:
+    abort: Abbrechen
+    back: Zurück
+    save: Speichern
+    new_transaction: Neue Transaktion
+  transaction:
+    amount: Betrag
+    transaction_types:
+      withdraw: Ausgeben
+      deposit: Einzahlen
+    purposes:
+      rent: Miete
+      food: Lebensmittel
+      restaurant: Auswärts essen
+      fun: Freizeit/Spaß
+      sport: Sport
+      depts: Schulden
+      other: Sonstige Ausgaben
+  transactions:
+    date: Zeitpunkt
+    transaction_type: Ereignis
+    amount: Betrag
+    purpose: Zweck

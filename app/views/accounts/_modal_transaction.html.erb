@@ -1,0 +1,35 @@
+<div class="modal" tabindex="-1" role="dialog" id="modal-transaction">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('accounts.show.modal.headline') %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+          <dic class="col-md-6">
+            <dic class="notification"></div>
+          </div>
+          <div class="col-md-6">
+            <label><%= t('accounts.show.modal.label.amount') %></label>
+            <%= text_field_tag :amount, 0.00, id: 'input-amount', class: 'form-control' %>
+            <br />
+            <label><%= t('accounts.show.modal.label.transaction_type') %></label>
+            <%= select_tag :transaction_type, options_for_select(translate_transaction_types), id: 'select-transaction-type', class: 'form-control' %>
+            <br />
+            <label><%= t('accounts.show.modal.label.purpose') %></label>
+            <%= select_tag :purpose, options_for_select(translate_purposes), id: 'select-purpose', class: 'form-control' %>
+            <br />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="btn-save"><%= t('buttons.save') %></button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('buttons.abort') %></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

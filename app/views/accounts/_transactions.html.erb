@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t('transactions.date') %></th>
+      <th scope="col"><%= t('transactions.transaction_type') %></th>
+      <th scope="col"><%= t('transactions.amount') %></th>
+      <th scope="col"><%= t('transactions.purpose') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= l transaction.created_at %></td>
+        <td><%= t("accounts.transactions.transaction_types.#{transaction.transaction_type}") %></td>
+        <td><%= transaction.amount %></td>
+        <td><%= t("transaction.purposes.#{transaction.purpose}") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

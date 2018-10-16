@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-6">
+    <h1><%= t('accounts.show.headline') %></h1>
+  </div>
+</div>
+<br />
+<br />
+<br />
+
+
+<div class="row">
+  <div class="col-sm">
+    <%= pie_chart expenses_for_current_month_for(@account.transactions.expenses_for_this_month), title: 'Ausgaben in diesem Monat', legend: nil %>
+  </div>
+  <div class="col-sm">
+    <%= pie_chart expenses_for_current_month_for(@account.transactions.all_expenses), title: 'Alle Ausgaben', legend: nil %>
+  </div>
+  <div class="col-sm">
+    <%= pie_chart current_balance(@account), title: 'Aktuelle Bilanz', legend: nil %>
+  </div>
+</div>
+<br />
+
+<%= button_tag :new_transaction, class: 'btn btn-primary', id: 'btn-new-transaction' do %>
+  <%= t('buttons.new_transaction') %>
+<% end %>
+<p></p>
+
+<%= render partial: 'transactions', locals: { account: @account } %>
+
+<div class="row">
+  <div class="col-auto mr-auto"></div>
+  <div class="col-auto"><strong><%= t('accounts.show.balance') %> <%= number_to_currency(@account.balance, precision: 2, unit: '€', seperator: '') %></strong></div>
+</div>
+
+<%= link_to t('buttons.back'), accounts_path %>
+
+<%= content_tag :div, class: "parameters", data: {account_id: @account.id} do %>
+<% end %>
+<%= render partial: 'modal_transaction' %>
+<br />
+
+<%= javascript_include_tag 'accounts/show' %>
+
+<script>
+  $(document).ready(function() {
+    Show.init();
+  });
+</script>
+<%= yield :charts_js %>
