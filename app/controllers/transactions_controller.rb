@@ -17,7 +17,7 @@ class TransactionsController < ApplicationController
   private
 
   def set_account
-    @account = Account.find(params[:account_id])
+    @account = current_user.accounts.find(params[:account_id])
   end
 
   def transaction_params
