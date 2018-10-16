@@ -7,19 +7,20 @@
 <br />
 <br />
 
-
-<div class="row">
-  <div class="col-sm">
-    <%= pie_chart expenses_for_current_month_for(@account.transactions.expenses_for_this_month), title: 'Ausgaben in diesem Monat', legend: nil %>
+<% if @account.transactions.any? %>
+  <div class="row">
+    <div class="col-sm">
+      <%= pie_chart expenses_for_current_month_for(@account.transactions.expenses_for_this_month), title: 'Ausgaben in diesem Monat', legend: nil %>
+    </div>
+    <div class="col-sm">
+      <%= pie_chart expenses_for_current_month_for(@account.transactions.all_expenses), title: 'Alle Ausgaben', legend: nil %>
+    </div>
+    <div class="col-sm">
+      <%= pie_chart current_balance(@account), title: 'Aktuelle Bilanz', legend: nil %>
+    </div>
   </div>
-  <div class="col-sm">
-    <%= pie_chart expenses_for_current_month_for(@account.transactions.all_expenses), title: 'Alle Ausgaben', legend: nil %>
-  </div>
-  <div class="col-sm">
-    <%= pie_chart current_balance(@account), title: 'Aktuelle Bilanz', legend: nil %>
-  </div>
-</div>
-<br />
+  <br />
+<% end %>
 
 <%= button_tag :new_transaction, class: 'btn btn-primary', id: 'btn-new-transaction' do %>
   <%= t('buttons.new_transaction') %>
