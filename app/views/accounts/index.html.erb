@@ -1,23 +1,9 @@
-<h1>Accounts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @accounts.each do |account| %>
-      <tr>
-        <td><%= link_to 'Show', account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Account', new_account_path %>
+<div class="jumbotron">
+  <h1 class="display-4">Kontenübersicht</h1>
+  <p class="lead">Hier sind alle Deine Konten aufgelistet.</p>
+  <hr class="my-4">
+  <p>Klicke auf ein Konto, um zur Detailansicht zu gelangen </p>
+  <% @accounts.each do |account| %>
+    <%= link_to account.account_name, account_path(account), class: 'btn btn-primary' %>
+  <% end %>
+</div>
